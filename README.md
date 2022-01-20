@@ -15,6 +15,7 @@ For this script to work you need to replace following variables in the script an
 
   **Google Project name**
   PROJECTNAME="XXXX"
+  
   **VPCNAME**
   VPCNAME="databricks-managed-3303143836518795"
   REGION="australia-southeast1"

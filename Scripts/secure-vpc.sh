@@ -7,7 +7,7 @@
 gcloud debug targets list --quiet
 
 ## Google Project name
-PROJECTNAME="mahdi-sa-permissiontest"
+PROJECTNAME="XXXX"
 ## VPCNAME
 VPCNAME="databricks-managed-3303143836518795"
 REGION="australia-southeast1"
@@ -23,6 +23,8 @@ DatabricksManagedRegional_IP="34.151.73.114/32"
 
 DatabricksManagedRegional_PORT="tcp:3306"
 DatabricksRegionalSCC_RULE="tcp:443"
+
+
 ################### Databricks Control Plane Services Egress Endpoints #####################
 # us-central1
 # tcp:443 35.224.199.248/32
@@ -45,6 +47,7 @@ DatabricksRegionalSCC_RULE="tcp:443"
 # europe-west2
 # tcp:443 34.105.148.92/32
 # tcp:3306 35.242.155.96/32
+# As new REGIONS go live new endpoints will be published. Please check latest endpoint information: https://docs.gcp.databricks.com/administration-guide/cloud-configurations/gcp/firewall.html#control-plane-service-endpoint-ip-addresses-by-region
 ################### ########################## ######################################
 
 

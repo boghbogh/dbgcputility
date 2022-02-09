@@ -1,6 +1,6 @@
 ## https://www.programcreek.com/python/?code=GoogleCloudPlatform%2Fprofessional-services%2Fprofessional-services-master%2Ftools%2Fquota-manager%2Fquota.py
 
-from os import stat
+
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
@@ -8,8 +8,7 @@ from googleapiclient.errors import HttpError
 from googleapiclient import discovery
 import pprint
 import json
-from flatten_json import flatten
-import pandas as pd
+
 
 
 

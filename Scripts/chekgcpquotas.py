@@ -1,4 +1,5 @@
-## https://www.programcreek.com/python/?code=GoogleCloudPlatform%2Fprofessional-services%2Fprofessional-services-master%2Ftools%2Fquota-manager%2Fquota.py
+####### Databricks Required Cloud Resources on GCP #########
+### https://docs.gcp.databricks.com/administration-guide/account-settings-gcp/quotas.html
 
 
 from google.auth.transport.requests import Request
@@ -10,12 +11,15 @@ import pprint
 import json
 
 
-
+##### Replace PROJECT ID HERE
+project = 'projects/mahdi-sa-permissiontest'
 
 def checkEnabledAPIs():
         try:
+
+            ##### AUTHENTICATE FIRST USING THIS:
             ###gcloud auth application-default login
-            project = 'projects/mahdi-sa-permissiontest'
+            print("------ENABLED APIS -------")           
             service = discovery.build('serviceusage', 'v1')
             request = service.services().list(pageSize=200,parent=project)                        
             response = ''        
@@ -51,10 +55,8 @@ def checkEnabledAPIs():
 
 
 def get_all_consumer_quota_metrics(service_name):
-        
-        import pprint
-        project_id = 'mahdi-sa-permissiontest'
-        parent = "projects/{}/services/{}".format(project_id,service_name)
+                
+        parent = "{}/services/{}".format(project,service_name)
         service = discovery.build(
             "serviceusage",
             "v1beta1",         
@@ -68,8 +70,7 @@ def get_all_consumer_quota_metrics(service_name):
         
 
 def checkServiceQuotas(serviceName,QuotaName,LimitString):
-    ###gcloud auth application-default login
-    project = 'projects/mahdi-sa-permissiontest'
+    ###gcloud auth application-default login    
     service = discovery.build(
             "serviceusage",
             "v1beta1",         
@@ -102,6 +103,8 @@ def parseGenericMetrics(result,metric):
 
 
 def main():
+    checkEnabledAPIs()
+    
     result=checkServiceQuotas("compute.googleapis.com","%2Fcpus","%2Fproject%2Fregion")
     parsecomputeRegional(result,"CPU")
 
